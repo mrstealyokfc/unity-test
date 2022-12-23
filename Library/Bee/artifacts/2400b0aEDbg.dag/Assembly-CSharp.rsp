@@ -351,6 +351,8 @@
 "Assets/Hook.cs"
 "Assets/MazeGenerator.cs"
 "Assets/MouseLook.cs"
+"Assets/Movemint.cs"
+"Assets/test.cs"
 -langversion:9.0
 
 /deterministic

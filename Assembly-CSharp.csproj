@@ -44,8 +44,11 @@
      <Compile Include="Assets/MouseLook.cs" />
      <Compile Include="Assets/Hook.cs" />
      <Compile Include="Assets/MazeGenerator.cs" />
+     <Compile Include="Assets/test.cs" />
+     <Compile Include="Assets/Movemint.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/textures" />
+     <Folder Include="Assets/prefabs" />
      <Folder Include="Assets/Materials" />
      <Folder Include="Assets/Scenes" />
      <Reference Include="UnityEngine">
