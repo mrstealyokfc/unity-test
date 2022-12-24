@@ -187,8 +187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpHeight: 0
+  jumpHeight: 10
   drag: 0.9
+  playerGravity: 0.5
+  useGravity: 1
 --- !u!143 &8572266
 CharacterController:
   m_ObjectHideFlags: 0
@@ -221,7 +223,7 @@ GameObject:
   - component: {fileID: 85208289}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +356,7 @@ MonoBehaviour:
   hookEndBase: {fileID: 4343184551918039478, guid: e82db36f592a5243385ca07b62a40910, type: 3}
   hookMiddle: {fileID: 6379095554806927865, guid: 350b727fb11dd73ad90bdf7ab44feb21, type: 3}
   yAim: {fileID: 963194228}
-  hookSpeed: 10
+  hookSpeed: 100
 --- !u!135 &447958350
 SphereCollider:
   m_ObjectHideFlags: 0

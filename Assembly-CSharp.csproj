@@ -43,9 +43,9 @@
   <ItemGroup>
      <Compile Include="Assets/MouseLook.cs" />
      <Compile Include="Assets/Hook.cs" />
-     <Compile Include="Assets/MazeGenerator.cs" />
+     <Compile Include="Assets/MovementController.cs" />
      <Compile Include="Assets/test.cs" />
-     <Compile Include="Assets/Movemint.cs" />
+     <Compile Include="Assets/MazeGenerator.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/textures" />
      <Folder Include="Assets/prefabs" />

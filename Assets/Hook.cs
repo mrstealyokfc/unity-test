@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Hook : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class Hook : MonoBehaviour
     public GameObject hookMiddle;
     public Transform yAim;
     public float hookSpeed;
-    
+
+    private MovementController _movementController;
     private CharacterController _controller;
     private GameObject hookEndInst;
     private string hookState="held";
@@ -29,6 +31,7 @@ public class Hook : MonoBehaviour
         hookEndInst.AddComponent<HookEndScript>().callback = this;
         hookEndInst.GetComponent<Collider>().isTrigger = true;
         _controller = transform.parent.gameObject.GetComponent<CharacterController>();
+        _movementController = transform.parent.gameObject.GetComponent<MovementController>();
     }
     
     void Update()
@@ -59,6 +62,7 @@ public class Hook : MonoBehaviour
             _controller.transform.position,
             hookEndInst.transform.position,
             hookSpeed*Time.deltaTime);
+        _movementController.useGravity = false;
     }
     private void processHooked()
     {
@@ -83,11 +87,9 @@ public class Hook : MonoBehaviour
         gameObject.transform.rotation = Quaternion.Euler(yAim.rotation.eulerAngles.x,_rot.y,_rot.z);
         hookEndInst.transform.position = transform.position;
         hookEndInst.transform.rotation = transform.rotation;
-        if (Input.GetKeyDown("space"))
-        {
+        if (Input.GetMouseButtonDown(0))
             hookState = "extending";
-        }
-            
+
     }
     private void ExtendHook()
     {
@@ -127,11 +129,12 @@ public class Hook : MonoBehaviour
     public void onHookEndCollisionCallback(Collider other)
     {
         Debug.Log("OWO");
-        if (other.transform.parent.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             if (hookState.Equals("pulling")||hookState.Equals("retracting"))
                 hookState = "held";
             hookEndInst.transform.position = transform.position;
+            _movementController.useGravity = true;
             return;
         }
             

@@ -351,7 +351,7 @@
 "Assets/Hook.cs"
 "Assets/MazeGenerator.cs"
 "Assets/MouseLook.cs"
-"Assets/Movemint.cs"
+"Assets/MovementController.cs"
 "Assets/test.cs"
 -langversion:9.0
 
