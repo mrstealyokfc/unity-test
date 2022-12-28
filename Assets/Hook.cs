@@ -15,6 +15,8 @@ public class Hook : MonoBehaviour
     public Transform yAim;
     public float hookSpeed;
 
+    private Transform hookSubject;
+    private Vector3 hookSubjectOffset;
     private MovementController _movementController;
     private CharacterController _controller;
     private GameObject hookEndInst;
@@ -54,6 +56,9 @@ public class Hook : MonoBehaviour
                 RetractHook();
                 break;
         }
+
+        if (hookState.Equals("pulling") || hookState.Equals("hooked"))
+            hookEndInst.transform.position = hookSubject.position + hookSubjectOffset;
     }
 
     private void pullPlayer()
@@ -137,9 +142,13 @@ public class Hook : MonoBehaviour
             _movementController.useGravity = true;
             return;
         }
-            
-        if(hookState.Equals("extending"))
+
+        if (hookState.Equals("extending"))
+        {
             hookState = "hooked";
+            hookSubject = other.transform;
+            hookSubjectOffset = hookEndInst.transform.position - hookSubject.transform.position;
+        }
 
     }
 }

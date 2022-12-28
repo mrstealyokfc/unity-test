@@ -25,12 +25,12 @@ public class MovementController : MonoBehaviour
     {
         velocity.x *= drag;
         velocity.z *= drag;
-        if (!_controller.isGrounded)
+        if (!_controller.isGrounded&&useGravity)
             velocity += playerGravity*Vector3.down;
         else
             velocity.y = 0;
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space")&&_controller.isGrounded)
             velocity.y += jumpHeight;
         if (Input.GetKeyDown("l"))
             Debug.Log(velocity);

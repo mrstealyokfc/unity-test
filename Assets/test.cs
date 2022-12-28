@@ -10,6 +10,7 @@ public class test : MonoBehaviour
     {
         hookEndInst = Instantiate(hookEndBase, gameObject.transform.position,
             Quaternion.identity, gameObject.transform);
+        hookEndInst.transform.localScale = new Vector3(10, 10, 10);
     }
     
     void Update()
