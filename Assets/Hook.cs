@@ -161,10 +161,4 @@ internal class HookEndScript : MonoBehaviour
     {
         callback.onHookEndCollisionCallback(other);
     }
-    
-
-    private void Start()
-    {
-        Debug.Log("uwu");    
-    }
 }
